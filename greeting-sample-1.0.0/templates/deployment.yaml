@@ -30,7 +30,7 @@ spec:
               protocol: TCP
           envFrom:
             - configMapRef:
-                name: greeting-sample
+                name: greeting-sample-{{ regexReplaceAll "\\W+" .Values.app.version "-" }}
           resources:
             limits:
               cpu: 500m

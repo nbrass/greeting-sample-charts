@@ -3,3 +3,6 @@ app:
   version: 1.1.0
   serviceType: ClusterIP
   image: quay.io/norman_brass_de/greeting-sample:1.1.0
+vars:
+  name: world
+  unused: default
