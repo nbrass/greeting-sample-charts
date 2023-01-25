@@ -1,0 +1,5 @@
+---
+app:
+  version: 1.0.0
+  serviceType: ClusterIP
+  image: quay.io/norman_brass_de/greeting-sample:v1.0.0

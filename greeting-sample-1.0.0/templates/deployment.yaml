@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.openshift.io/runtime: quarkus
+    app.kubernetes.io/name: greeting-sample
+    app.kubernetes.io/version: {{ .Values.app.version }}
+  name: greeting-sample-{{ regexReplaceAll "\\W+" .Values.app.version "-" }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: greeting-sample
+      app.kubernetes.io/version: {{ .Values.app.version }}
+  template:
+    metadata:
+      labels:
+        app.openshift.io/runtime: quarkus
+        app.kubernetes.io/name: greeting-sample
+        app.kubernetes.io/version: {{ .Values.app.version }}
+    spec:
+      containers:
+        - image: {{ .Values.app.image }}
+          imagePullPolicy: Always
+          name: greeting-sample
+          ports:
+            - containerPort: 8080
+              name: http
+              protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: greeting-sample
+          resources:
+            limits:
+              cpu: 500m
+              memory: 256Mi
+            requests:
+              cpu: 250m
+              memory: 128Mi

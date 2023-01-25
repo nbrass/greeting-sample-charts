@@ -1,0 +1,19 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/name: greeting-sample
+    app.kubernetes.io/version: {{ .Values.app.version }}
+    app.openshift.io/runtime: quarkus
+  name: greeting-sample-{{ regexReplaceAll "\\W+" .Values.app.version "-" }}
+spec:
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app.kubernetes.io/name: greeting-sample
+    app.kubernetes.io/version: {{ .Values.app.version }}
+  type: {{ .Values.app.serviceType }}
