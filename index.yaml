@@ -9,7 +9,7 @@ entries:
       sources:
       - https://github.ibm.com/norman-brass/argocd/greeting-sample
       urls:
-      - https://github.ibm.com/norman-brass/argocd/helm-repo/greeting-sample-1.1.0.tgz
+      - https://raw.githubusercontent.com/nbrass/greeting-sample-charts/main/greeting-sample-1.1.0.tgz
       version: 1.1.0
     - created: 2023-01-24T09:30:00.000000000-00:00
       description: Deploy a simple Quarkus REST application
@@ -19,5 +19,5 @@ entries:
       sources:
       - https://github.ibm.com/norman-brass/argocd/greeting-sample
       urls:
-      - https://github.ibm.com/norman-brass/argocd/helm-repo/greeting-sample-1.0.0.tgz
+      - https://raw.githubusercontent.com/nbrass/greeting-sample-charts/main/greeting-sample-1.0.0.tgz
       version: 1.0.0
