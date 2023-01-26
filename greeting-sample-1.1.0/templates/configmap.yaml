@@ -5,7 +5,8 @@ metadata:
     app.openshift.io/runtime: quarkus
     app.kubernetes.io/name: greeting-sample
     app.kubernetes.io/version: {{ .Values.app.version }}
-  name: greeting-sample-{{ regexReplaceAll "\\W+" .Values.app.version "-" }}
+  name: greeting-sample
 data:
   greeting.name: {{ .Values.vars.name }}
   greeting.unused: {{ .Values.vars.unused }}
+  greeting.newvar: {{ .Values.vars.newvar }}

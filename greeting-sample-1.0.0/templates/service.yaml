@@ -6,7 +6,7 @@ metadata:
     app.kubernetes.io/name: greeting-sample
     app.kubernetes.io/version: {{ .Values.app.version }}
     app.openshift.io/runtime: quarkus
-  name: greeting-sample-{{ regexReplaceAll "\\W+" .Values.app.version "-" }}
+  name: greeting-sample
 spec:
   ports:
     - name: http

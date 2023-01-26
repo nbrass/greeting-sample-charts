@@ -6,3 +6,4 @@ app:
 vars:
   name: world
   unused: default
+  newvar: default

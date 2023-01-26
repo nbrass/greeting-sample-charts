@@ -6,7 +6,7 @@ metadata:
     app.openshift.io/runtime: quarkus
     app.kubernetes.io/name: greeting-sample
     app.kubernetes.io/version: {{ .Values.app.version }}
-  name: greeting-sample-{{ regexReplaceAll "\\W+" .Values.app.version "-" }}
+  name: greeting-sample
 spec:
   replicas: 1
   selector:
@@ -30,7 +30,7 @@ spec:
               protocol: TCP
           envFrom:
             - configMapRef:
-                name: greeting-sample-{{ regexReplaceAll "\\W+" .Values.app.version "-" }}
+                name: greeting-sample
           resources:
             limits:
               cpu: 500m
